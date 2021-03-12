@@ -1,0 +1,5 @@
+uboot/
+kernel/
+busybox/
+rootfs/
+out/
