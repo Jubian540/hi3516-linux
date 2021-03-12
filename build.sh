@@ -46,4 +46,32 @@ check_pack()
 	echo "chinked busybox done."
 }
 
+build_uboot()
+{
+	cd $UBOOT
+	$UBOOT/build.sh
+	cp $UBOOT/u-boot-hi3516ev200.bin $OUT/u-boot.bin
+}
+
+build_kernel()
+{
+	cd $KERNEL
+	$KERNEL/build.sh
+	cp $KERNEL/kernel.bin $OUT/kernel
+}
+
+build_rootfs()
+{
+	$ROOTFS/mkimg.rootfs $ROOTFS $OUT rootfs jffs2
+}
+
 check_pack
+
+if [ ! -d $OUT ];then
+	mkdir $OUT
+fi
+rm -rf $OUT/*
+
+build_uboot
+build_kernel
+build_rootfs
