@@ -9,6 +9,8 @@ BUSYBOX=$CURPATH/busybox
 ROOTFS=$CURPATH/rootfs
 OUT=$CURPATH/out
 
+COMMAND=$1
+
 check_pack()
 {
 	echo "chinking uboot..."
@@ -72,6 +74,20 @@ if [ ! -d $OUT ];then
 fi
 rm -rf $OUT/*
 
-build_uboot
-build_kernel
-build_rootfs
+if [ -z "$COMMAND" ];then
+	build_uboot
+	build_kernel
+	build_rootfs
+else
+	case $1 in
+	'uboot')
+		build_uboot
+		;;
+	'kernel')
+		build_kernel
+		;;
+	'rootfs')
+		build_rootfs
+		;;
+	esac
+fi
