@@ -72,7 +72,6 @@ check_pack
 if [ ! -d $OUT ];then
 	mkdir $OUT
 fi
-rm -rf $OUT/*
 
 if [ -z "$COMMAND" ];then
 	build_uboot
