@@ -3,3 +3,4 @@ kernel/
 busybox/
 rootfs/
 out/
+rtl8188fu/
