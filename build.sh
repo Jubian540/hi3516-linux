@@ -34,6 +34,15 @@ check_pack()
 	fi
 	echo "chinked kernel done."
 
+	echo "chinking wifi driver..."
+	if [ ! -d  $CURPATH/rtl8188fu ];then
+                git https://github.com/Jubian540/rtl8188fu rtl8188fu
+        else
+                cd $CURPATH/rtl8188fu
+                git pull
+                cd $CURPATH
+        fi
+
 	echo "chinking busybox..."
 	if [ ! -d  $CURPATH/busybox ];then
                 git clone https://github.com/Jubian540/hi3516-busybox.git busybox
