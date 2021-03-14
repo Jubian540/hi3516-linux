@@ -67,8 +67,6 @@ build_rootfs()
 	$ROOTFS/mkimg.rootfs $ROOTFS $OUT rootfs jffs2
 }
 
-check_pack
-
 if [ ! -d $OUT ];then
 	mkdir $OUT
 fi
@@ -79,6 +77,9 @@ if [ -z "$COMMAND" ];then
 	build_rootfs
 else
 	case $1 in
+	'check')
+		check_pack
+		;;
 	'uboot')
 		build_uboot
 		;;
