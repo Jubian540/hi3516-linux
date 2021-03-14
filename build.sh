@@ -7,7 +7,8 @@ UBOOT=$CURPATH/uboot
 KERNEL=$CURPATH/kernel
 BUSYBOX=$CURPATH/busybox
 ROOTFS=$CURPATH/rootfs
-OUT=$CURPATH/out
+WIFIDRIVER=$CURPATH/rtl8188fu
+OUT=~/tftp
 
 COMMAND=$1
 
@@ -60,6 +61,9 @@ build_kernel()
 	cd $KERNEL
 	$KERNEL/build.sh
 	cp $KERNEL/kernel.bin $OUT/kernel
+
+	cd $WIFIDRIVER
+	$WIFIDRIVER/build.sh
 }
 
 build_rootfs()
