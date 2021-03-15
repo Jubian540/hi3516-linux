@@ -16,7 +16,7 @@ check_pack()
 {
 	echo "chinking uboot..."
 	if [ ! -d  $CURPATH/uboot ];then
-                git clone https://github.com/Jubian540/ncam-uboot.git uboot
+                git clone https://github.com/Jubian540/ncam-uboot.git uboot origin main
         else
                 cd $CURPATH/uboot
 		git pull
@@ -26,10 +26,12 @@ check_pack()
 
 	echo "chinking kernel..."
 	if [ ! -d  $CURPATH/kernel ];then
-		git clone https://github.com/Jubian540/ncam-kernel.git kernel
+		git clone https://github.com/Jubian540/ncam-kernel.git kernel origin ipc
+		git checkout ipc
 	else
 		cd $CURPATH/kernel
-		git pull
+		git pull origin ipc
+		git checkout ipc
 		cd $CURPATH
 	fi
 	echo "chinked kernel done."
