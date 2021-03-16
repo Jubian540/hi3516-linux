@@ -16,7 +16,7 @@ check_pack()
 {
 	echo "chinking uboot..."
 	if [ ! -d  $CURPATH/uboot ];then
-                git clone https://github.com/Jubian540/ncam-uboot.git uboot origin main
+                git clone https://github.com/Jubian540/ncam-uboot.git uboot
         else
                 cd $CURPATH/uboot
 		git pull
@@ -26,7 +26,7 @@ check_pack()
 
 	echo "chinking kernel..."
 	if [ ! -d  $CURPATH/kernel ];then
-		git clone https://github.com/Jubian540/ncam-kernel.git kernel origin ipc
+		git clone https://github.com/Jubian540/ncam-kernel.git kernel
 		git checkout ipc
 	else
 		cd $CURPATH/kernel
@@ -38,7 +38,7 @@ check_pack()
 
 	echo "chinking wifi driver..."
 	if [ ! -d  $CURPATH/rtl8188fu ];then
-                git https://github.com/Jubian540/rtl8188fu rtl8188fu
+                git clone https://github.com/Jubian540/rtl8188fu.git rtl8188fu
         else
                 cd $CURPATH/rtl8188fu
                 git pull
